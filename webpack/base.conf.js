@@ -24,7 +24,6 @@ module.exports = {
   },
   entry: {
     app: PATHS.src,
-    // module: `${PATHS.src}/your-module.js`,
   },
   output: {
     filename: `${PATHS.assets}js/[name].[hash].js`,
@@ -55,17 +54,13 @@ module.exports = {
       {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'file-loader',
-        options: {
-          name: '[name].[ext]'
-        }
+        options: { name: '[name].[ext]' }
       },
       // Images
       {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
-        options: {
-          name: '[name].[ext]'
-        }
+        options: { name: '[name].[ext]' }
       },
       // SCSS
       {
@@ -75,24 +70,15 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: {
-              sourceMap: true
-            }
+            options: { sourceMap: true }
           },
           {
             loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
-              config: {
-                path: `./postcss.config.js`
-              }
-            }
+            options: { sourceMap: true, config: { path: `./postcss.config.js` }}
           },
           {
             loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            }
+            options: { sourceMap: true }
           }
         ]
       },
@@ -104,17 +90,11 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: {
-              sourceMap: true
-            }
-          }, {
+            options: { sourceMap: true }
+          },
+          {
             loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
-              config: {
-                path: `./postcss.config.js`
-              }
-            }
+            options: { sourceMap: true, config: { path: `./postcss.config.js` }}
           }
         ]
       }
@@ -129,18 +109,10 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: `${PATHS.assets}css/[name].[hash].css`,
     }),
-    new CopyWebpackPlugin([{
-        from: `${PATHS.src}/${PATHS.assets}img`,
-        to: `${PATHS.assets}img`
-      },
-      {
-        from: `${PATHS.src}/${PATHS.assets}fonts`,
-        to: `${PATHS.assets}fonts`
-      },
-      {
-        from: `${PATHS.src}/static`,
-        to: ''
-      },
+    new CopyWebpackPlugin([
+      { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
+      { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
+      { from: `${PATHS.src}/static`, to: '' },
     ]),
 
     // Automatic creation any html pages (Don't forget to RERUN dev server)
