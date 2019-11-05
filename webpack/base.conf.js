@@ -44,6 +44,19 @@ module.exports = {
   },
   module: {
     rules: [
+      // HTML
+      {
+        test: /\.(html)$/,
+        use: {
+          loader: 'html-loader',
+          options: {
+            minimize: true,
+            removeComments: false,
+            collapseWhitespace: false,
+            interpolate: true
+          }
+        }
+      },
       // JS
       {
         test: /\.js$/,
