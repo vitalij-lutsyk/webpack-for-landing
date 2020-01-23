@@ -1,0 +1,56 @@
+// Display
+.d-none { display: none; }
+.d-block { display: block; }
+
+.d-hide {
+  opacity: 0;
+  pointer-events: none;
+  cursor: default;
+}
+
+.opacity-zero { opacity: 0; }
+.opacity-full { opacity: 1; }
+
+.pointer-none { pointer-events: none; }
+
+// Sizing
+.height-0 { height: 0; }
+.height-100 { height: 100%; }
+.height-max-0 { max-height: 0; }
+.height-max-auto { max-height: auto; }
+
+.width-0 { width: 0; }
+.width-100 { width: 100%; }
+.width-max-0 { min-width: 0; }
+.width-max-auto { min-width: auto; }
+
+// Flex layouting
+.h-flexbox {
+  display: flex;
+
+  &.justify-between   { justify-content: space-between; }
+  &.justify-center    { justify-content: center; }
+  &.justify-start     { justify-content: flex-start; }
+  &.justify-end       { justify-content: flex-end; }
+  &.items-center      { align-items: center; }
+
+  &.flex-wrap         { flex-wrap: wrap; }
+  &.flex-nowrap       { flex-wrap: nowrap; }
+
+  &.flex-column       { flex-direction: column; }
+  &.flex-row          { flex-direction: row; }
+}
+
+// Grid layout
+.h-grid {
+  display: grid;
+
+  &.grid-flow-column { grid-auto-flow: column; }
+
+  &.rows-2           { grid-template-rows: repeat(2, 1fr); }
+  &.rows-3           { grid-template-rows: repeat(3, 1fr); }
+  &.rows-6           { grid-template-rows: repeat(6, 1fr); }
+
+  &.columns-2        { grid-template-columns: auto auto; }
+  &.columns-3        { grid-template-columns: auto auto auto; }
+}

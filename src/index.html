@@ -9,10 +9,14 @@
 </head>
 
 <body>
-  ${require('./templates/header.html')}
-  <div class="wrapper">
-    <h1>Webpack</h1>
-  </div>
+  <section class="head">
+    <div class="wrapper">
+      ${require('./templates/header.html')}
+    </div>
+  </section>
+  <main class="wrapper">
+    ${require('./templates/footer.html')}
+  </main>
 </body>
 
 </html>
