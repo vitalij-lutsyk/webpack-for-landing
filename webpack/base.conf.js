@@ -4,6 +4,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+const glob = require('glob')
+const PurgecssPlugin = require('purgecss-webpack-plugin')
+
 // Main const
 // see more: https://github.com/vedees/webpack-template/blob/master/README.md#main-const
 const PATHS = {
@@ -134,6 +137,10 @@ module.exports = {
     ...PAGES.map(page => new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/${page}`,
       filename: `./${page}`
-    }))
+    })),
+
+    new PurgecssPlugin({
+      paths: glob.sync(`${PATHS.src}/**/*`,  { nodir: true }),
+    })
   ],
 }
